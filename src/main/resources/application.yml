@@ -1,20 +1,20 @@
-server:
-  port: 8181
-spring:
-  profiles:
-    active: dev
-redis:
-  config:
-    address: 127.0.0.1
-    port: 6379
-#开启springboot的debug 可以查看自动配置报告，用来判断哪些自动配置生效
-#debug: true
-
-#日志级别
+#server:
+#  port: 8181
+#spring:
+#  profiles:
+#    active: dev
+#redis:
+#  config:
+#    address: 127.0.0.1
+#    port: 6379
+##开启springboot的debug 可以查看自动配置报告，用来判断哪些自动配置生效
+##debug: true
+#
+##日志级别
+##logging:
+##  level:
+##    com.zdj: trace
+#
+##日志保存在当前磁盘下spring文件夹下的spring.log文件   path是指定目录  file是指定文件  也可以指定日志格式
 #logging:
-#  level:
-#    com.zdj: trace
-
-#日志保存在当前磁盘下spring文件夹下的spring.log文件   path是指定目录  file是指定文件  也可以指定日志格式
-logging:
-  path: /spring
+#  path: /spring
