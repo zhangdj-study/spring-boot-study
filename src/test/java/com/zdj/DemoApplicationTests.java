@@ -69,4 +69,10 @@ public class DemoApplicationTests {
         logger.error("error级别");
         System.out.println(redis);
     }
+
+    @Test
+    public void contextLoads6() {
+        boolean b = applicationContext.containsBean("myService");
+        System.out.println(b);
+    }
 }

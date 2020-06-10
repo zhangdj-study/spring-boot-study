@@ -1,6 +1,7 @@
 package com.zdj.model;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Email;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -27,5 +28,10 @@ public class Person {
     private List<Object> objectList;
 
     private Map<String,Object> map;
+
+    @Email
+    private String email;
+
+    private String address;
 
 }

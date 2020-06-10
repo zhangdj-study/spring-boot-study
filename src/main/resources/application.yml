@@ -1,8 +1,12 @@
-#server:
-#  port: 8181
-#spring:
-#  profiles:
-#    active: dev
+server:
+  port: 8181
+#激活dev环境
+spring:
+  profiles:
+    active: uat
+---
+spring:
+  profiles: prod
 #redis:
 #  config:
 #    address: 127.0.0.1
@@ -18,3 +22,11 @@
 ##日志保存在当前磁盘下spring文件夹下的spring.log文件   path是指定目录  file是指定文件  也可以指定日志格式
 #logging:
 #  path: /spring
+server:
+  port: 8888
+
+---
+spring:
+  profiles: uat
+server:
+  port: 8999
