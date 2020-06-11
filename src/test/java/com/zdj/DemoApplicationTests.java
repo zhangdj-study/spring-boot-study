@@ -62,12 +62,14 @@ public class DemoApplicationTests {
     @Test
     public void contextLoads5() {
         Logger logger = LoggerFactory.getLogger(getClass());
+        // 日志级别由低到高  可以调整日志级别 日志就只会打印这个级别及更高级别
+        // SpringBoot默认级别为info
         logger.trace("trace级别");
         logger.debug("debug级别");
         logger.info("info级别");
         logger.warn("warn级别");
         logger.error("error级别");
-        System.out.println(redis);
+//        System.out.println(redis);
     }
 
     @Test
