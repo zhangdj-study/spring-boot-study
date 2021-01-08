@@ -3,31 +3,27 @@ package com.zdj.controller;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
-import org.springframework.stereotype.Controller;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
+import java.io.*;
+import java.util.Properties;
 
 /**
  * @author zhangdj
  * @date 2019/10/10
  */
-@Controller
+@RestController
 public class HelloWorldController {
 
-    @ResponseBody
-    @RequestMapping("/hello")
+    @GetMapping("/hello")
     public String hello(){
         return "Hello World";
     }
 
-
-    @GetMapping
-    @RequestMapping("test")
+    @GetMapping("test")
     public void download(HttpServletResponse response) throws Exception{
         response.setContentType("application/octet-stream");
         String fileName = "是的阿萨德.pdf";
@@ -46,5 +42,27 @@ public class HelloWorldController {
         OutputStream outputStream = response.getOutputStream();
         bos.writeTo(outputStream);
         outputStream.flush();
+    }
+
+    @GetMapping("getConfig")
+    public String getConfig() {
+        String key = "list";
+        String filePath = "D:/white.properties";
+        String value="";
+        Properties p = new Properties();
+        InputStream is = null;
+        try {
+            //下面为动态获取
+            is = new FileInputStream(filePath);
+            p.load(is);
+            value=p.getProperty(key);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            IOUtils.closeQuietly(is);
+        }
+        return value;
     }
 }

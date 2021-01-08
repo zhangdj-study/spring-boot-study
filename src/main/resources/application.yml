@@ -20,6 +20,7 @@ logging:
     com.zdj: trace
   # 当前磁盘根目录下创建springboot文件夹和log子文件夹，使用spring.log作为默认文件
   path: /springboot/log/
+white: yui
 
 ##日志保存在当前磁盘下spring文件夹下的spring.log文件   path是指定目录  file是指定文件  也可以指定日志格式
 #logging:
